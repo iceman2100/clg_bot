@@ -1,0 +1,13 @@
+language: "en"
+
+pipeline:
+- name: "WhitespaceTokenizer"
+- name: "LexicalSyntacticFeaturizer"
+- name: "CountVectorsFeaturizer"
+- name: "DIETClassifier"
+- name: "ResponseSelector"
+
+policies:
+- name: "MemoizationPolicy"
+- name: "TEDPolicy"
+assistant_id: 20241029-074239-trusting-bass

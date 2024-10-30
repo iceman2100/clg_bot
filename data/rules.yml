@@ -1,0 +1,42 @@
+#rules.yml
+version: "3.1"
+rules:
+  - rule: Respond to undergraduate admissions inquiry
+    steps:
+      - intent: ask_undergraduate_admissions
+      - action: action_undergraduate_admissions
+
+  - rule: Respond to courses offered inquiry
+    steps:
+      - intent: ask_courses_offered
+      - action: action_courses_offered
+
+  - rule: Respond to research inquiry
+    steps:
+      - intent: ask_research
+      - action: action_research
+
+  - rule: Respond to careers inquiry
+    steps:
+      - intent: ask_careers
+      - action: action_careers
+
+  - rule: Respond to student life inquiry
+    steps:
+      - intent: ask_student_life
+      - action: action_student_life
+
+  - rule: Respond to placements inquiry
+    steps:
+      - intent: ask_placements
+      - action: action_placements
+
+  - rule: Respond to contact inquiry
+    steps:
+      - intent: ask_contact
+      - action: action_contact
+
+  - rule: Respond to NCET news inquiry
+    steps:
+      - intent: ask_ncet_news
+      - action: action_ncet_news

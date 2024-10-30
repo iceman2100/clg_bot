@@ -1,0 +1,46 @@
+version: "3.1"
+
+intents:
+  - ask_undergraduate_admissions
+  - ask_courses_offered
+  - ask_research
+  - ask_careers
+  - ask_student_life
+  - ask_placements
+  - ask_contact
+  - ask_ncet_news
+
+actions:
+  - action_undergraduate_admissions
+  - action_courses_offered
+  - action_research
+  - action_careers
+  - action_student_life
+  - action_placements
+  - action_contact
+  - action_ncet_news
+
+responses:
+  utter_ask_undergraduate_admissions:
+    - text: "For undergraduate admissions, here are the important details:\n- **Eligibility**: Applicants should have completed their higher secondary education (10+2) with relevant subjects.\n- **Application Process**: You can apply online through our [Undergraduate Admissions Portal](https://ncet.co.in/admissions/).\n- **Important Dates**: Make sure to check the website for the latest deadlines and updates.\n- **More Information**: For further details, visit our [Undergraduate Admissions page] https://ncet.co.in/admissions/ "
+
+  utter_ask_courses_offered:
+    - text: "You can find the list of courses offered by our college on the [Courses Offered page] https://ncet.co.in/aboutncet/ "
+  
+  utter_ask_research:
+    - text: "For an overview of research centers and initiatives, visit our [Research page] https://ncet.co.in/research/ "
+  
+  utter_ask_careers:
+    - text: "For job opportunities for teachers, you can check our [Careers page] https://ncet.co.in/careersncet/ "
+  
+  utter_ask_student_life:
+    - text: "Campus life, housing, and student resources can be explored on our [Student Life page] https://ncet.co.in/gallery/ "
+  
+  utter_ask_placements:
+    - text: "For information on placements in our college, visit the [Placements page] https://ncet.co.in/placements/ "
+  
+  utter_ask_contact:
+    - text: "For general contact information, visit our [Contact Us page] https://ncet.co.in/contact-us-2/ "
+  
+  utter_ask_ncet_news:
+    - text: "Stay updated with university news on our [NCET News page] https://ncet.co.in/iic-2/ "

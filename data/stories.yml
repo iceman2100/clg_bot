@@ -1,0 +1,41 @@
+version: "3.1"
+stories:
+- story: ask undergraduate admissions
+  steps:
+  - intent: ask_undergraduate_admissions
+  - action: utter_ask_undergraduate_admissions
+
+- story: ask courses offered
+  steps:
+  - intent: ask_courses_offered
+  - action: utter_ask_courses_offered
+
+- story: ask research
+  steps:
+  - intent: ask_research
+  - action: utter_ask_research
+
+- story: ask careers
+  steps:
+  - intent: ask_careers
+  - action: utter_ask_careers
+
+- story: ask student life
+  steps:
+  - intent: ask_student_life
+  - action: utter_ask_student_life
+
+- story: ask placements
+  steps:
+  - intent: ask_placements
+  - action: utter_ask_placements
+
+- story: ask contact
+  steps:
+  - intent: ask_contact
+  - action: utter_ask_contact
+
+- story: ask NCET news
+  steps:
+  - intent: ask_ncet_news
+  - action: utter_ask_ncet_news

@@ -1,0 +1,49 @@
+version: "3.1"
+nlu:
+- intent: ask_undergraduate_admissions
+  examples: |
+    - What are the undergraduate admissions criteria?
+    - Can you tell me about the admission process?
+    - What do I need to apply for undergraduate studies?
+
+- intent: ask_courses_offered
+  examples: |
+    - What courses are offered?
+    - Can you list the courses available?
+    - What programs do you provide?
+
+- intent: ask_research
+  examples: |
+    - What are the current research initiatives?
+    - Can you tell me about research projects?
+    - What research areas are you focusing on?
+
+- intent: ask_careers
+  examples: |
+    - What career options do you have?
+    - Can you tell me about career opportunities?
+    - What jobs can I pursue after graduation?
+
+- intent: ask_student_life
+  examples: |
+    - What is student life like?
+    - Can you tell me about campus activities?
+    - What facilities are available for students?
+
+- intent: ask_placements
+  examples: |
+    - How does the placement process work?
+    - Can you explain the placement procedure?
+    - What placement services do you provide?
+
+- intent: ask_contact
+  examples: |
+    - How can I contact you?
+    - What is your contact information?
+    - Can you provide contact details?
+
+- intent: ask_ncet_news
+  examples: |
+    - What’s the latest news from NCET?
+    - Can you give me updates from NCET?
+    - What are the recent announcements?

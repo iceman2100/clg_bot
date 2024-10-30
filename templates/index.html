@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rasa Chat</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Container for the chat */
+        #chat-container {
+            width: 400px;
+            margin: 0 auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            background-color: #f7f7f7;
+        }
+
+        /* Styling the message input area */
+        #chat-form {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        #message {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 8px 12px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-left: 5px;
+        }
+
+        /* Chat messages */
+        .message-container {
+            margin: 10px 0;
+        }
+
+        .user-message, .bot-message {
+            display: inline-block;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 5px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+
+        /* User message styles */
+        .user-message {
+            background-color: #DCF8C6;
+            text-align: right;
+            float: right;
+            clear: both;
+        }
+
+        /* Bot message styles */
+        .bot-message {
+            background-color: #f1f0f0;
+            text-align: left;
+            float: left;
+            clear: both;
+        }
+
+        /* Clearfix for message container */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <h2>Chat with Rasa</h2>
+        <div id="chat-response"></div>
+
+        <form id="chat-form">
+            <input type="text" id="message" name="message" placeholder="Type your message here" required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script>
+        // Function to convert URLs and markdown links to clickable links
+        function convertToLinks(text) {
+            text = text.replace(/\[([^\]]+)\]\s*\((https?:\/\/[^\s]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+            text = text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
+            return text;
+        }
+
+        $(document).ready(function () {
+            $('#chat-form').on('submit', function (event) {
+                event.preventDefault();
+                const userMessage = $('#message').val();
+
+                // Append the user's message to the chat
+                $('#chat-response').append(
+                    `<div class="message-container clearfix">
+                        <div class="user-message">${userMessage}</div>
+                    </div>`
+                );
+
+                // Send the message to Flask endpoint
+                $.ajax({
+                    url: '/send_message',
+                    type: 'POST',
+                    data: { message: userMessage },
+                    success: function (response) {
+                        const botReply = response.reply.map(reply => convertToLinks(reply)).join("<br>");
+                        // Append the bot's message to the chat
+                        $('#chat-response').append(
+                            `<div class="message-container clearfix">
+                                <div class="bot-message">${botReply}</div>
+                            </div>`
+                        );
+                        $('#chat-container').scrollTop($('#chat-container')[0].scrollHeight); // Auto-scroll to the latest message
+                    }
+                });
+
+                $('#message').val(''); // Clear input after sending
+            });
+        });
+    </script>
+</body>
+</html>
